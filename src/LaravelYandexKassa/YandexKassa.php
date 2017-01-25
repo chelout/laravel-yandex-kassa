@@ -2,6 +2,8 @@
 
 namespace Artem328\LaravelYandexKassa;
 
+use Illuminate\Support\Facades\Auth;
+
 use Artem328\LaravelYandexKassa\Exceptions\YandexKassaInvalidParameterException;
 use Artem328\LaravelYandexKassa\Exceptions\YandexKassaNoPaymentTypesProvidedException;
 
@@ -102,6 +104,40 @@ class YandexKassa
         }
 
         return $shopId;
+    }
+
+    /**
+     * Get sum parameter
+     *
+     * @return string
+     * @throws \Artem328\LaravelYandexKassa\Exceptions\YandexKassaInvalidParameterException
+     */
+    public function getSum()
+    {
+        $sum = config('yandex_kassa.sum');
+
+        if (!$sum) {
+            throw new YandexKassaInvalidParameterException('sum');
+        }
+
+        return $sum;
+    }
+
+    /**
+     * Get customerNumber parameter
+     *
+     * @return string
+     * @throws \Artem328\LaravelYandexKassa\Exceptions\YandexKassaInvalidParameterException
+     */
+    public function getCustomerNumber()
+    {
+        $customerNumber = Auth::id();
+
+        if (!$customerNumber) {
+            throw new YandexKassaInvalidParameterException('customerNumber');
+        }
+
+        return $customerNumber;
     }
 
     /**

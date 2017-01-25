@@ -36,6 +36,7 @@ return [
     */
     'shop_id' => env('YANDEX_KASSA_SHOP_ID', null),
     'sc_id' => env('YANDEX_KASSA_SC_ID', null),
+    'sum' => env('YANDEX_KASSA_SUM', null),
 
     /*
     |--------------------------------------------------------------------------

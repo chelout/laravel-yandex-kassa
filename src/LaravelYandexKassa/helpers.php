@@ -74,6 +74,28 @@ function yandex_kassa_shop_id()
 }
 
 /**
+ * Helper function for getting sum parameter
+ *
+ * @return string
+ * @throws \Artem328\LaravelYandexKassa\Exceptions\YandexKassaInvalidParameterException
+ */
+function yandex_kassa_sum()
+{
+    return yandex_kassa()->getSum();
+}
+
+/**
+ * Helper function for getting sum parameter
+ *
+ * @return string
+ * @throws \Artem328\LaravelYandexKassa\Exceptions\YandexKassaInvalidParameterException
+ */
+function yandex_kassa_customer_number()
+{
+    return yandex_kassa()->getCustomerNumber();
+}
+
+/**
  * Helper function for getting payment types
  *
  * @return \Illuminate\Support\Collection
